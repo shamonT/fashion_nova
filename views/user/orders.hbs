@@ -1,0 +1,65 @@
+<section class="banner-area organic-breadcrumb">
+		<div class="container">
+			<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+				<div class="col-first">
+					<h1>Order Details</h1>
+					{{!-- <nav class="d-flex align-items-center">
+						<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+						<a href="#">Shop<span class="lnr lnr-arrow-right"></span></a>
+						<a href="category.html">Fashion Category</a>
+					</nav> --}}
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+<section class="my-5">
+    <div class="container">
+        <div class="row justify-content-center align-item-center">
+           
+            {{#each orders}}
+            <div class="col-md-8">
+                <div class="card mt-3" style="width:40em;height:20em">
+                    <div class="row">
+                        <div class="d-flex justify-content-between mt-3 my-3">
+                            <div class="keys ml-5">
+                                <h6>Order ID :</h6>
+                                <h6>Billing Address:</h6>
+                                <br>
+                                <h6>Time:</h6>
+                                <h6>Total :</h6>
+                                <h6>Order Status:</h6>
+                                <h6>Payment Method:</h6>
+                            </div>
+                            <div class="values mr-4 text-end">
+                                <h6><span id="totalBookPrice">{{this._id}}</span></h6>
+                                <h6><span
+                                        id="billingAddress">{{this.deliveryDetails.Address}},{{this.deliveryDetails.City}}</span>
+                                </h6>
+                                <h6><span
+                                        id="address">{{this.deliveryDetails.State}},{{this.deliveryDetails.Locality}},{{this.deliveryDetails.pincode}}</span>
+                                </h6>
+                                <h6>{{this.date}}</h6>
+                                <h6>₹<span id="grandTotal">{{this.Grandtotal}}</span></h6>
+                                <h6>{{this.status}}</h6>
+                                <h6>{{this.payementMethod}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center mb-4">
+                        <div class="col-4 text-center">
+                            <a href="/view-orders/{{this._id}}" class="btn btn-success" type="button">View Products</a>
+                        </div>
+                        <div class="col-4 text-center">
+                            <a href="/invoice/{{this._id}}" class="btn btn-success" type="button">Show Invoice</a>
+                        </div>
+                    </div>
+                     
+
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>

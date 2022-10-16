@@ -1,0 +1,168 @@
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+			<div class="col-first">
+				<h1>Login/Register</h1>
+				<nav class="d-flex align-items-center">
+					<a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+					<a href="category.html">Login/Register</a>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- End Banner Area -->
+
+<!--================Login Box Area =================-->
+<section class="login_box_area section_gap">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6">
+				<div class="login_box_img">
+					<img class="img-fluid" src="img/login.jpg" alt="">
+					<div class="hover">
+						<h4>New to our website?</h4>
+						<p>There are advances being made in science and technology everyday, and a good example of this
+							is the</p>
+						<a class="primary-btn" href="/signup">Create an Account</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-6">
+				<div class="login_form_inner">
+					<h3>Log in to enter</h3>
+					<form class="row login_form" action="/login" method="post" id="contactForm" novalidate="novalidate">
+						{{#if loginErr}}
+						<p class="error">Invalid username or Password</p>
+						{{/if}}
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="Email" name="Email" placeholder="Email"
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" value="" onkeyup="validateEmail()">
+								<span id="email-error" class="text-danger font-weight-bold"></span>
+						</div>
+						<div class="col-md-12 form-group">
+							<input type="text" class="form-control" id="Password" name="Password" placeholder="Password"
+								onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'" value="" onkeyup="validatePassword()">
+								<span id="pass-error" class="text-danger font-weight-bold"></span>
+						</div>
+						<div class="col-md-12 form-group">
+							<div class="creat_account">
+								<input type="checkbox" id="f-option2" name="selector">
+								<label for="f-option2">Keep me logged in</label>
+							</div>
+						</div>
+						<div class="col-md-12 form-group">
+							<button type="submit" value="submit" class="primary-btn" onclick="return validateForm()">Log In</button>
+							<span id="submit-error" class="text-danger font-weight-bold"></span>
+							<a href="#">Forgot Password?</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!--================End Login Box Area =================-->
+
+<!-- start footer Area -->
+<footer class="footer-area section_gap">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3  col-md-6 col-sm-6">
+				<div class="single-footer-widget">
+					<h6>About Us</h6>
+					<p>
+						  We sell only the original items through this site directly from the authorised sellers,so we are safe and reliable 
+					</p>
+				</div>
+			</div>
+			<div class="col-lg-4  col-md-6 col-sm-6">
+				<div class="single-footer-widget">
+					<h6>Newsletter</h6>
+					<p>Stay update with our latest</p>
+					<div class="" id="mc_embed_signup">
+
+						<form target="_blank" novalidate="true"
+							action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+							method="get" class="form-inline">
+
+							<div class="d-flex flex-row">
+
+								<input class="form-control" name="EMAIL" placeholder="Enter Email"
+									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email '"
+									required="" type="email">
+
+
+								<button class="click-btn btn btn-default"><i class="fa fa-long-arrow-right"
+										aria-hidden="true"></i></button>
+								<div style="position: absolute; left: -5000px;">
+									<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
+										type="text">
+								</div>
+
+								<!-- <div class="col-lg-4 col-md-4">
+													<button class="bb-btn btn"><span class="lnr lnr-arrow-right"></span></button>
+												</div>  -->
+							</div>
+							<div class="info"></div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+</footer>
+<!-- End footer Area -->
+<script>
+
+	var emailError = document.getElementById('email-error');
+    var passError = document.getElementById('pass-error');
+    var submitError = document.getElementById('submit-error');
+
+	function validateEmail() {
+    var email = document.getElementById('Email').value;
+
+    if (email.length == 0) {
+        emailError.innerHTML = '**Email is required';
+        return false
+    }
+    if (email.indexOf('@') <= 0) {
+        emailError.innerHTML = '**Invalid email format';
+        return false
+    }
+    if ((email.charAt(email.length - 4) != '.') && (email.charAt(email.length - 3) != '.')) {
+        emailError.innerHTML = '**invalid email format ';
+        return false
+    }
+    emailError.innerHTML = '<i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+    return true
+}
+
+
+function validatePassword() {
+    var pass = document.getElementById('Password').value;
+
+    if (pass.length == 0) {
+        passError.innerHTML = '**Password is required';
+        return false
+    }
+    if (pass.length <= 4) {
+        passError.innerHTML = '**Invalid password format';
+        return false
+    }
+    passError.innerHTML = '<i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+    return true
+}
+
+function validateForm() {
+    if (!validateEmail() || !validatePassword()) {
+        submitError.style.display = 'block'
+        submitError.innerHTML = 'Please fill the form';
+        setTimeout(function () { submitError.style.display = 'none' }, 2000)
+        return false;
+    }
+}
+</script>

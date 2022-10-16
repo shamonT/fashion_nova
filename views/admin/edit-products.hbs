@@ -1,0 +1,51 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="text-center" >Edit Product</h2>
+                <form action="/admin/edit-products/{{product._id}}" method="post" enctype="multipart/form-data" >
+                    <label for="">Name</label>
+                    <input type="text" name="Name" class="form-control" value="{{product.Name}}"><br>
+
+                     <select class="form-select" id="select" name="Category" aria-label="Default select example">
+                <option selected>Select Category</option>
+                 {{#each category}}
+                <option value="{{this.Category}}">{{this.Category}}</option>
+                 {{/each}}
+                  </select><br>
+
+
+                    <label for="">Brand</label>
+                    <input type="text" name="Brand" class="form-control" value="{{product.Brand}}">
+
+                      <label for="">Quantity</label>
+                    <input type="text" name="Quantity" class="form-control" value="{{product.Quantity}}">
+
+                    <label for="">Price</label>
+                    <input type="text" name="Price" class="form-control" value="{{product.Price}}">
+
+                    <label for="">Description</label>
+                    <input type="text" name="Description" class="form-control" value="{{product.Description}}">
+
+            
+                    <input type="file" name="Image" class="form-control" id="formfile" multiple onchange="viewImage(event)" >
+                    <img src="/uploads/{{product.Image.[0]}}" alt="" style="width:150px;height:80px;" id="imgView-1">
+                    <img src="/uploads/{{product.Image.[1]}}" alt="" style="width:150px;height:80px;" id="imgView-2">
+                    <img src="/uploads/{{product.Image.[2]}}" alt="" style="width:150px;height:80px;" id="imgView-3">
+
+                    <button type="submit" class="btn btn-success mt-4">Submit</button>
+                </form>
+            </div>     
+        </div>
+    </div>
+</section>
+<script>
+    function viewImage(event) {
+        let leng = event.target.files.length
+        console.log(leng)
+        for (let i = 1; i <= leng; i++) {
+            document.getElementById('imgView-' + [i]).src = URL.createObjectURL(event.target.files[i])
+        }
+
+    }
+</script>

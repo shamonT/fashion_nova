@@ -1,0 +1,73 @@
+<section class="my-5 bg-white mt-4">
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+        {{#each singleproducts}}
+          <div class="card p-3 mt-3" style="height:25em" >
+            <div class="row  align-items-center mt-5">
+              <div class="col-md-6 text-center">
+                <img
+                  src="/uploads/{{this.orderProducts.Image.[0]}}"
+                  style="width:15em ;height:15em"
+                  alt="Product Image"
+                />
+              </div>
+              <div class="col-md-6">
+                <div class="d-flex justify-content-between mt-3 my-3">
+                  <div class="keys ml-4 text-start">
+                    <h6>Name :</h6>
+                    <h6>Category:</h6>
+                    <h6>Quantity:</h6>
+                   
+                    <h6>Total Price :</h6>
+                  </div>
+                  <div class="values mr-4 text-end">
+                    <h6 class="font-color">{{this.orderProducts.Name}}</h6>
+                    <h6>{{this.orderProducts.Category}}</h6>
+                    <h6>{{this.quantity}}</h6>
+               
+                    <h6>₹{{multiply this.orderProducts.Price this.quantity}}</h6>
+
+                    
+                  </div>
+                  
+                </div>
+                
+              </div>
+              
+                                          
+               {{!-- {{#with buttonchange}} 
+                  {{#if pack}} 
+                  <ul class="list-inline items d-flex justify-content-between">
+                    <li class="list-inline-item items-list">
+                      <a href="/admin/item-packed/{{this._id}} " class="btn btn-danger mt-5">Packed</a>
+                    </li>
+                     
+
+                    {{!-- {{/if}}
+
+                    {{#if status}} 
+
+                    <li class="list-inline-item items-list">
+                      <a href="/admin/item-shipped/{{this._id}} " class="btn btn-danger mt-5">Shipped</a>
+                    </li>
+
+                     {{else}} --}}
+                    
+                    {{!-- <li class="list-inline-item items-list text-end" style="margin-right: 8px;">
+                      <a href="/admin/item-delivered/{{this._id}} " class="btn btn-primary mt-5">Delivered</a>
+                    </li>
+                    
+                  </ul>
+-- {{/if}}
+
+                  {{/with}} --}}
+            </div>
+            
+          </div>
+          
+        {{/each}}
+        </div>
+    </div>
+  </div>
+</section>

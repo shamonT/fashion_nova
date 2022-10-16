@@ -1,0 +1,57 @@
+   {{!-- <div id="right-panel" class="right-panel"> --}}
+    <div class="content">
+        <div class="row">
+           <a href="/admin/add-coupon" class="btn btn-success ml-auto">Add coupon</a> 
+        </div>
+            <div class="animated fadeIn">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <strong class="card-title">Coupon Table</strong>
+                            </div>
+                            <div class="table-stats order-table ov-h mr-5">
+                                <table class="table  " >
+                                    <thead>
+                                        <tr>
+                                            <th class="serial">#</th>
+                                            
+                                           
+                                            <th>Coupon Name</th>
+                                              <th>Coupon expiry</th>
+                                                <th>Coupon price</th>
+                                           
+                                            <th>Delete</th>
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each coupon}}
+                                        <tr>
+                                            <td >{{inc @index}}</td>
+                                           
+                                           
+                                            
+                                            <td>  <span class="Product Name">{{this.Couponname}}</span> </td>
+                                            <td>  <span class="Product Name">{{this.Couponexpiry}}</span> </td>
+                                            <td>  <span class="Product Name">{{this.Couponprice}}</span> </td>
+                                            
+                                              
+                                               <td> 
+                                                <a href="/admin/delete-coupon/{{this._id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item{{this.name}}')" >Delete</a>
+                                                
+                                                </td> 
+                                        </tr>
+                                       {{/each}}
+                                      
+                                    </tbody>
+                                </table>
+                            {{!-- </div>
+                        </div> <!-- /.table-stats --> --}}
+                        </div>
+                    </div>
+                   
+
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->

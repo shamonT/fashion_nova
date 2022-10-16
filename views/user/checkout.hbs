@@ -1,0 +1,472 @@
+<!-- End Header Area -->
+
+<!-- Start Banner Area -->
+<section class="banner-area organic-breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-banner d-flex flex-wrap align-items-center justify-content-end">
+      <div class="col-first">
+        <h1>Checkout</h1>
+        <nav class="d-flex align-items-center">
+          <a href="index.html">Home<span class="lnr lnr-arrow-right"></span></a>
+          <a href="single-product.html">Checkout</a>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Banner Area -->
+
+<!--================Checkout Area =================-->
+<section class="checkout_area section_gap">
+  <div class="container">
+    {{!-- <div class="returning_customer">
+      <div class="check_title">
+        <h2>Returning Customer? <a href="#">Click here to login</a></h2>
+      </div>
+      <p>If you have shopped with us before, please enter your details in the boxes below. If you are a new
+        customer, please proceed to the Billing & Shipping section.</p>
+      <form class="row contact_form" action="#" method="post" novalidate="novalidate">
+        <div class="col-md-6 form-group p_star">
+          <input type="text" class="form-control" id="name" name="name">
+          <span class="placeholder" data-placeholder="Username or Email"></span>
+        </div>
+      </form>
+      <div class="col-md-6 form-group p_star">
+        <input type="password" class="form-control" id="password" name="password">
+        <span class="placeholder" data-placeholder="Password"></span>
+      </div>
+      <div class="col-md-12 form-group">
+        <button type="submit" value="submit" class="primary-btn">login</button>
+        <div class="creat_account">
+          <input type="checkbox" id="f-option" name="selector">
+          <label for="f-option">Remember me</label>
+        </div>
+        <a class="lost_pass" href="#">Lost your password?</a>
+      </div>
+      </form>
+    </div> --}}
+     <div class="cupon_area">
+      <div class="check_title">
+        <h2>Have a coupon? <a href="#">Click here to enter your code</a></h2>
+      </div>
+     <input type="text" id="couponCode" value="" placeholder="Enter coupon code">
+     <button onclick="applyCoupon()" type="submit" class="tp_btn">Apply Coupon</button> 
+    </div> 
+    <div class="billing_details">
+      <div class="row">
+
+        <div class="col-lg-8">
+
+          <div class="accordion" id="accordionExample">
+            <div class="card p-3">
+              <div class="card-header" id="headingOne">
+                <h5 class="mb-0">
+                  <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Add new Address
+                  </button>
+                </h5>
+              </div>
+
+              <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+
+
+
+                  <form action="/AddAddresscheckout" method="post" class="form-horizontal">
+                    <div class="row form-group">
+                      {{!-- <div class="col col-md-3"><label class=" form-control-label">Static</label></div> --}}
+                      {{!-- <div class="col-12 col-md-9">
+                        <p class="form-control-static">Username</p>
+                      </div> --}}
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Name</label></div>
+                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="Name" placeholder="Text"
+                          class="form-control"></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="email-input" class=" form-control-label">Mobile</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="number" id="number-input" name="Mobile"
+                          placeholder="Enter number" class="form-control"></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="address-input" class=" form-control-label">Address</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="text" id="password-input" name="Address"
+                          placeholder="Address" class="form-control"></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="locality" class=" form-control-label">Locality/town</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="text" id="locality-input" name="Locality"
+                          placeholder="Locality" class="form-control"></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="city-input"
+                          class=" form-control-label">City/District</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="text" id="city-input" name="City" placeholder="city"
+                          class="form-control"></textarea></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="city-input" class=" form-control-label">State</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="text" id="city-input" name="State" placeholder="city"
+                          class="form-control"></textarea></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="city-input" class=" form-control-label">Pin-code</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="number" id="city-input" name="Pin" placeholder="city"
+                          class="form-control"></textarea></div>
+                    </div>
+
+
+
+
+                    <div class="checkout_btn_inner d-flex align-items-center">
+                      <button type="submit"
+                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Submit</button>
+                    </div>
+
+                  </form>
+
+                </div>
+              </div>
+            </div>
+            {{#each userAddress}}
+
+
+            <div class="card p-3">
+              <div class="card-header" id="headingTwo">
+                <h5 class="mb-0">
+                  <div class="d-flex float-right">
+                    <button class="btn btn-link collapsed float-right" type="button" data-toggle="collapse"
+                      data-target="#collapseTwo{{this.Id}}" aria-expanded="false" aria-controls="collapseTwo">
+                      <i class="fa-solid fa-pen-to-square"></i>
+
+                    </button>
+
+                    <button onclick="selectAddress('{{this.Id}}')" class="border-0  float-right "> <input type="radio"
+                        id="f-option7" name="address" value="Address"></button>
+                  </div>
+
+                  Address:{{inc @index}}
+                  {{this.Name}},{{this.Address}},{{this.Mobile}},{{this.Locality}},{{this.City}},{{this.Pincode}},{{this.State}}
+                </h5>
+              </div>
+              <div id="collapseTwo{{this.Id}}" class="collapse" aria-labelledby="headingTwo"
+                data-parent="#accordionExample">
+                <div class="card-body">
+
+
+                  <form action="" id="editAddress-form{{this.Id}}" method="post" class="form-horizontal">
+                    <div class="row form-group">
+                      {{!-- <div class="col col-md-3"><label class=" form-control-label">Static</label></div> --}}
+                      {{!-- <div class="col-12 col-md-9">
+                        <p class="form-control-static">Username</p>
+                      </div> --}}
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="text-input" class=" form-control-label">Name</label></div>
+                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="Name" placeholder="Text"
+                          class="form-control" value="{{this.Name}}"></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="email-input" class=" form-control-label">Mobile</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="number" id="number-input" name="Mobile"
+                          placeholder="Enter number" class="form-control" value="{{this.Mobile}}"></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="address-input" class=" form-control-label">Address</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="text" id="password-input" name="Address"
+                          placeholder="Address" class="form-control" value="{{this.Address}}"></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="locality" class=" form-control-label">Locality/town</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="text" id="locality-input" name="Locality"
+                          placeholder="Locality" class="form-control" value="{{this.Locality}}"></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="city-input"
+                          class=" form-control-label">City/District</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="text" id="city-input" name="City" placeholder="city"
+                          class="form-control" value="{{this.City}}"></textarea></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="city-input" class=" form-control-label">State</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="text" id="state-input" name="State" placeholder="city"
+                          class="form-control" value="{{this.State}}"></textarea></div>
+                    </div>
+                    <div class="row form-group">
+                      <div class="col col-md-3"><label for="city-input" class=" form-control-label">Pin-code</label>
+                      </div>
+                      <div class="col-12 col-md-9"><input type="number" id="city-input" name="Pincode" placeholder="pin"
+                          class="form-control" value="{{this.Pincode}}"></textarea></div>
+                    </div>
+                    <div>
+                      <input type="text" name="userId" id="userId" value="{{this._id}}" hidden>
+                    </div>
+                    <div>
+                      <input type="text" name="addressId" id="" value="{{this.Id}}" hidden>
+                    </div>
+                    <div>
+                      <input type="text" name="couponname" id="" value="" hidden>
+                    </div>
+                    <div>
+                      <input type="text" name="Discount" id="Discount" value="" hidden>
+                    </div>
+                    <div>
+                      <input type="text" name="grandtotal" id="grandtotal" value="" hidden>
+                    </div>
+                     <div>
+                      <input type="text" name="" id="" value="{{total}}" hidden>
+                    </div>
+
+
+
+
+
+
+                    <div class="checkout_btn_inner d-flex align-items-center">
+                      <button onclick="editAddress('{{this.Id}}')" type="submit"
+                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Submit</button>
+                    </div>
+
+                  </form>
+
+
+                </div>
+              </div>
+            </div>
+            {{/each}}
+
+
+
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="order_box">
+            <h2>Your Order</h2>
+            {{!-- <ul class="list">
+              <li><a href="#">Product <span>Total</span></a></li>
+              <li><a href="#">Fresh Blackberry <span class="middle">x 02</span> <span class="last">$720.00</span></a>
+              </li>
+              <li><a href="#">Fresh Tomatoes <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
+              <li><a href="#">Fresh Brocoli <span class="middle">x 02</span> <span class="last">$720.00</span></a></li>
+            </ul> --}}
+            <ul class="list list_2">
+              <li><a name="" value="" >  Total <span id="total">{{total}}</span></a></li>
+              <li><a  name="" value="" >Discount <span id="discount">0</span></a></li>
+              {{!-- <li><a href="#">Subtotal <span>$2160.00</span></a></li>
+              <li><a href="#">Shipping <span>Flat rate: $50.00</span></a></li> --}}
+              <li><a  name="" value="" >Grand Total <span id="Grandtotal">0</span></a></li>
+            </ul>
+
+
+            <p>Payement method</p>
+            <form class="row contact_form" action="#" method="" id="checkout-form">
+              <div class="payment_item">
+                <div class="radion_btn">
+                  <input type="radio" id="f-option5" name="payement-method" value="COD">
+                  <label for="f-option5">COD</label>
+                  <div class="check"></div>
+                </div>
+                {{!-- <p>Please send a check to Store Name, Store Street, Store Town, Store State / County,
+                  Store Postcode.</p> --}}
+              </div>
+              <div class="payment_item">
+
+                <div class="radion_btn">
+                  <input type="radio" id="f-option6" name="payement-method" value="ONLINE">
+                  <label for="f-option6">Online payement </label>
+                
+                  <div class="check"></div>
+                </div>
+                {{!-- <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal
+                  account.</p> --}}
+              </div>
+              {{!-- <div class="creat_account">
+                <input type="checkbox" id="f-option4" name="selector">
+                <label for="f-option4">I’ve read and accept the </label>
+                <a href="#">terms & conditions*</a>
+              </div> --}}
+              <button onclick="checkout()" class="primary-btn" type="submit">Checkout</button>
+            </form>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<!--================End Checkout Area =================-->
+
+<script>
+  function checkout(){
+
+  $("#checkout-form").submit((e) => {
+
+    e.preventDefault()
+    
+    $.ajax({
+      url: '/place-order',
+      method: 'post',
+      data: $('#checkout-form').serialize(),
+      success: (response) => {
+        
+        if (response.codSuccess) {
+          console.log(response.codSuccess)
+          location.href = '/confirmation'
+        }else{
+          console.log(response)
+            razorpayPayement(response)
+        }
+      }
+    })
+  })
+  }
+  function razorpayPayement(order) {
+        var options = {
+            "key": "rzp_test_2dn5c1Bc0uQZNg",
+            "amount": order.amount,
+            "currency": "INR",
+            "name": "tintu mon",
+            "description": "A Wild Sheep Chase is the third novel by Japanese author Haruki Murakami",
+            "image": "https://example.com/your_logo.jpg",
+            "order_id": order.id,
+            "handler": function (response) {
+                
+
+                verifyPayement(response, order)
+            },
+            "prefill": {
+                "name": "shamon",
+                "email": "shamonp50@gmail.com",
+                "contact": "8089164502"
+            },
+            "notes": {
+                "address": "Pristine Perfumerie	 Corporate Office"
+            },
+            "theme": {
+                "color": "#F37254"
+            }
+        };
+        var rzpl = new Razorpay(options)
+        rzpl.open();
+    }
+
+    function verifyPayement(payement, order) {
+        $.ajax({
+            url: '/verify-payement',
+            data: {
+                payement,
+                order
+            },
+            method: 'post',
+            success: (response) => {
+              console.log(response,"response")
+                if (response.status) {
+                   location.href = '/confirmation'
+                   alert("paymetn success")
+                } else {
+                    alert("payment failed")
+                }
+            }
+        })
+    }
+
+
+  function editAddress(Id) {
+    $("#editAddress-form" + Id).submit((e) => {
+
+      e.preventDefault()
+      $.ajax({
+        url: '/edit-address',
+        method: 'post',
+        data: $('#editAddress-form' + Id).serialize(),
+        success: (response) => {
+          Swal.fire('Hooray!', 'Address edited successfully',
+            'success')
+          setTimeout(() => { location.reload() }, 2000)
+          if (response.status) {
+
+          }
+          location.reload()
+        }
+      })
+    })
+  }
+
+  function selectAddress(Id) {
+    $.ajax({
+      url: '/select-address/' + Id,
+      method: 'post',
+
+      success: (response) => {
+        Swal.fire('Hooray!', 'Address updated successfully',
+          'success')
+        setTimeout(() => { }, 2000)
+
+      }
+
+    })
+  }
+
+  function applyCoupon(){
+
+    var coupon=document.getElementById('couponCode').value
+   
+    var userId=document.getElementById('userId').value
+    var total=document.getElementById('total').innerHTML
+    console.log(total,"userIduserIduserIduserIduserIduserIduserId")
+    $.ajax({
+      url:'/apply-coupon',
+      method:'post',
+      data: {
+        coupon:coupon,
+        userId:userId
+                
+            },
+            success:(response)=>{
+              console.log(response,"responseresponse")
+              if(response.expiry){
+                alert('your coupon has expired')
+              }else if(response.used){
+                alert('coupon is already used')
+              }else if(response.unAvailable){
+                alert('sorry! its not valid')
+              }else{
+                var discount=response.Couponprice
+            console.log(discount)
+                var Grandtotal=total-discount
+                 console.log(Grandtotal)
+                document.getElementById('discount').innerHTML=discount
+                    
+                 document.getElementById('Grandtotal').innerHTML=Grandtotal
+                  document.getElementById('Couponname').innerHTML=response.Couponname
+                   document.getElementById('Couponname').value=response.Couponname
+                    document.getElementById('Grandtotal').value=Grandtotal
+                     document.getElementById('grandtotal').value=Grandtotal
+                     document.getElementById('discount').value=discount
+                     document.getElementById('Discount').value=discount
+                     alert('coupon applied successfully')
+              }
+            }
+    })
+  }
+
+
+</script>

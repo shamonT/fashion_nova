@@ -1,0 +1,47 @@
+   <div class="content">
+        <div class="row">
+ 
+ <div class="col-lg-6">
+                        {{!-- <div class="card"> --}}
+                            <div class="mt-1">
+                                <strong class="mt-5">Basic Table</strong>
+                            </div>
+                            <div class="card-body">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                          <th scope="col">sl no</th>
+                                          <th scope="col">Name</th>
+                                          <th scope="col">Email</th>
+                                          <th scope="col">Mobile</th>
+                                          <th scope="col">Options</th>
+                                      </tr>
+                                  </thead>
+                                  {{#each user}}
+                                  <tbody>
+                                    <tr>
+                                       
+                                        <td>{{inc @index}}</td>
+                                        <td>{{this.Name}}</td>
+                                        <td>{{this.Email}}</td>
+                                        <td>{{this.number}}</td>
+                                         <td>
+                                           {{#if this.block}}
+                                            <a href="/admin/user-active/{{this._id}}" class="btn btn-success" >Active</a>
+                                            {{else}}
+                                            <a href="/admin/user-block/{{this._id}}" class="btn btn-danger" >Block</a>
+                                           {{/if}}
+                                         </td>
+                                    </tr>
+                                   
+                                    
+                                </tbody>
+                                {{/each}}
+                            </table>
+                        </div>
+                    {{!-- </div> --}}
+                </div>
+        </div>
+   </div>
+
+              

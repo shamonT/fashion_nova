@@ -1,0 +1,162 @@
+<section class="vh-100 bg-image"
+  style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+          <div class="card" style="border-radius: 15px;">
+            <div class="card-body p-5">
+              <h2 class="text-uppercase text-center mb-5">Create an account</h2>
+
+              <form action="/signup" method="post">
+
+                <div class="form-outline mb-4">
+                  <input type="text" name="Name"  id="Name" class="form-control form-control-lg" onkeyup="validateName()"/>
+                  <label class="form-label" for="form3Example1cg">Your Name</label>
+                  
+							<span id="name-error" class="text-danger font-weight-bold"></span>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" name="Email" id="Email" class="form-control form-control-lg" onkeyup="validateEmail()" />
+                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                
+							<span id="email-error" class="text-danger font-weight-bold"></span>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="password" name="Password" id="Password" class="form-control form-control-lg"  onkeyup="validatePassword()"/>
+                  <label class="form-label" for="form3Example4cg">Password</label>
+                
+							<span id="pass-error" class="text-danger font-weight-bold"></span>
+							
+                </div>
+
+                 <div class="form-outline mb-4">
+                  <input type="tel" name="number" id="Phone" class="form-control form-control-lg"   onkeyup="validatePhone()" />
+                  <label class="form-label" for="form3Example4cg">Mobile</label>
+                  <span id="phone-error" class="text-danger font-weight-bold"></span>
+                </div>
+
+                {{!-- <div class="form-outline mb-4">
+                  <input type="password" name="Password" id="form3Example4cdg" class="form-control form-control-lg" />
+                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                </div> --}}
+{{!-- 
+                <div class="form-check d-flex justify-content-center mb-5"> 
+                  <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
+                  <label class="form-check-label" for="form2Example3g">
+                    I agree all statements in <a href="#!" class="text-body"><u>Terms of service</u></a>
+                  </label>
+                </div> --}}
+
+                <div class="d-flex justify-content-center">
+                  <button type="submit"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" onclick="return validateForm()">Register</button>
+                    <span id="submit-error" class="text-danger font-weight-bold"></span>
+                </div>
+
+                <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="/login"
+                    class="fw-bold text-body"><u>Login here</u></a></p>
+
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+var nameError = document.getElementById('name-error');
+var emailError = document.getElementById('email-error');
+var mobileError = document.getElementById('phone-error');
+var passError = document.getElementById('pass-error');
+
+var submitError = document.getElementById('submit-error');
+
+
+function validateName() {
+    var name = document.getElementById('Name').value;
+
+    if (name.length == 0) {
+        nameError.innerHTML = '**Name is required';
+        return false
+    }
+    if (!name.match(/^[A-Za-z]*\s{1}[A-Za-z]*$/)) {
+        nameError.innerHTML = '**Write full name';
+        return false;
+    }
+    if ((name.length <= 2) || (name.length > 20)) {
+        nameError.innerHTML = '**Name length must be between 3 and 20';
+        return false
+    }
+    nameError.innerHTML = '<i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+    return true
+}
+
+function validatePhone() {
+    var mobile = document.getElementById('Phone').value;
+
+    if (mobile.length == 0) {
+        mobileError.innerHTML = '**Phone no is required';
+        return false
+    }
+    if (mobile.length != 10) {
+        mobileError.innerHTML = '**Phone number should be 10 digits';
+        return false
+    }
+    if (!mobile.match(/^[0-9]{10}$/)) {
+        mobileError.innerHTML = '**Only digits please';
+        return false
+    }
+    mobileError.innerHTML = '<i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+    return true
+}
+
+function validateEmail() {
+    var email = document.getElementById('Email').value;
+
+    if (email.length == 0) {
+        emailError.innerHTML = '**Email is required';
+        return false
+    }
+    if (email.indexOf('@') <= 0) {
+        emailError.innerHTML = '**Invalid email format';
+        return false
+    }
+    if ((email.charAt(email.length - 4) != '.') && (email.charAt(email.length - 3) != '.')) {
+        emailError.innerHTML = '**invalid email format ';
+        return false
+    }
+    emailError.innerHTML = '<i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+    return true
+}
+
+function validatePassword() {
+    var pass = document.getElementById('Password').value;
+
+    if (pass.length == 0) {
+        passError.innerHTML = '**Password is required';
+        return false
+    }
+    if (pass.length <= 5) {
+        passError.innerHTML = '**Minimum password length must be 5';
+        return false
+    }
+    passError.innerHTML = '<i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+    return true
+}
+
+
+
+function validateForm() {
+    if (!validateName() || !validatePhone() || !validateEmail() || !validatePassword() || !validateConfirm()) {
+        submitError.style.display = 'block'
+        submitError.innerHTML = 'Please fill the form';
+        setTimeout(function () { submitError.style.display = 'none' }, 3000)
+        return false;
+    }
+}
+</script>

@@ -1,0 +1,49 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">order Date</th>
+     
+      <th scope="col">Order ID </th>
+        <th scope="col">Billing Address </th>
+          <th scope="col">Total : </th>
+            <th scope="col">Order Status </th>
+              <th scope="col">Payment Method </th>
+               <th scope="col">View orders </th>
+    </tr>
+  </thead>
+  <tbody>
+        {{#each orders}}
+    <tr>
+      <th scope="row">{{inc @index}}</th>
+      
+      <td>{{this.date}}</td>
+      <td>{{this._id}}</td>
+       <td>{{this.deliveryDetails.Address}},{{this.deliveryDetails.City}},{{this.deliveryDetails.State}},{{this.deliveryDetails.Locality}}</td>
+        <td>{{this.Grandtotal}}</td>
+         <td>{{this.status}}</td>
+          <td>{{this.payementMethod}}</td>
+            <td><a href="/admin/view-order-products/{{this._id}}">View</a> </td>
+            
+            <td>
+              
+             
+              
+                                           {{#if (eqPlaced this.status)}}
+                                            
+                                              
+                                            <a href="/admin/item-packed/{{this._id}}" class="btn btn-success" >packed</a>
+                                            {{else}}{{#if (eqPacked this.status)}}
+                                            <a href="/admin/item-shipped/{{this._id}}" class="btn btn-danger" >shipped</a>
+                                           {{else}}{{#if (eqShipped this.status)}}
+                                           <a href="/admin/item-delivered/{{this._id}}" class="btn btn-danger" >Delivered</a>
+                                           
+                                         {{/if}}
+                                         {{/if}}
+                                         {{/if}}
+            </td>
+    </tr>
+    
+  {{/each}}
+  </tbody>
+</table>

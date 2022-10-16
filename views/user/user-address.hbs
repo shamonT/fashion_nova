@@ -1,0 +1,284 @@
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+
+        </nav>
+      </div>
+    </div>
+
+    <div class="row mt-5">
+      {{!-- {{#each userSignUpDetails}} --}}
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{userDetails.Name}}</h5>
+             <h5 class="my-3">{{userDetails.Email}}</h5>
+              <h5 class="my-3">{{userDetails.number}}</h5>
+
+
+          </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+          <div class="card-body p-0">
+            <ul class="list-group list-group-flush rounded-3">
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fas fa-globe fa-lg text-warning"></i>
+                <a href="/user-profile">Manage profile</a>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fab fa-github fa-lg" style="color: #333333;"></i>
+                <a href="Edit-address">Manage Address</a>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+
+                <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+                <a href="/orders">My Orders</a>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                <a href="">Logout</a>
+              </li>
+              {{!-- <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                <p class="mb-0">mdbootstrap</p>
+              </li> --}}
+            </ul>
+          </div>
+        </div>
+      </div>
+     
+      <div class="col-lg-8">
+
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne">
+                  Add new Address
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+
+
+
+                <form action="/AddAddress" method="post" class="form-horizontal">
+                  <div class="row form-group">
+                    {{!-- <div class="col col-md-3"><label class=" form-control-label">Static</label></div> --}}
+                    {{!-- <div class="col-12 col-md-9">
+                      <p class="form-control-static">Username</p>
+                    </div> --}}
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Name</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Name" placeholder="Text"
+                        class="form-control" required></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="email-input" class=" form-control-label">Mobile</label></div>
+                    <div class="col-12 col-md-9"><input type="number" id="number-input" name="Mobile"
+                        placeholder="Enter number" class="form-control" required></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="address-input" class=" form-control-label">Address</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="text" id="password-input" name="Address"
+                        placeholder="Address" class="form-control" required></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="locality" class=" form-control-label">Locality/town</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="text" id="locality-input" name="Locality"
+                        placeholder="Locality" class="form-control" required></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="city-input" class=" form-control-label">City/District</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="text" id="city-input" name="City"
+                        placeholder="city" class="form-control" required></textarea></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="city-input" class=" form-control-label">State</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="text" id="city-input" name="State"
+                        placeholder="city" class="form-control" required></textarea></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="city-input" class=" form-control-label">Pin-code</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="number" id="city-input" name="Pin"
+                        placeholder="city" class="form-control" required></textarea></div>
+                  </div>
+
+
+                  
+
+                  <div class="checkout_btn_inner d-flex align-items-center">
+                    <button type="submit"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Submit</button>
+                  </div>
+
+                </form>
+
+              </div>
+            </div>
+          </div>
+{{#each userAddress}}
+
+          
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h5 class="mb-0">
+                <div class="d-flex float-right">
+                <button class="btn btn-link collapsed float-right" type="button" data-toggle="collapse" data-target="#collapseTwo{{this.Id}}"
+                  aria-expanded="false" aria-controls="collapseTwo">
+              <i class="fa-solid fa-pen-to-square"></i>
+              
+                </button>
+              
+               <button  onclick="deleteAddress('{{this.Id}}')" type="submit"
+                      class="btn btn-danger "><i class="fa fa-trash" aria-hidden="true"></i></button>
+              </div>
+                
+                 Address:{{inc @index}}
+                {{this.Name}},{{this.Address}},{{this.Mobile}},{{this.Locality}},{{this.City}},{{this.Pincode}},{{this.State}}
+              </h5>
+            </div>
+            <div id="collapseTwo{{this.Id}}" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+
+
+                <form action="" id="editAddress-form{{this.Id}}" method="post" class="form-horizontal">
+                  <div class="row form-group">
+                    {{!-- <div class="col col-md-3"><label class=" form-control-label">Static</label></div> --}}
+                    {{!-- <div class="col-12 col-md-9">
+                      <p class="form-control-static">Username</p>
+                    </div> --}}
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="text-input" class=" form-control-label">Name</label></div>
+                    <div class="col-12 col-md-9"><input type="text" id="text-input" name="Name" placeholder="Text"
+                        class="form-control" value="{{this.Name}}" ></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="email-input" class=" form-control-label">Mobile</label></div>
+                    <div class="col-12 col-md-9"><input type="number" id="number-input" name="Mobile"
+                        placeholder="Enter number" class="form-control" value="{{this.Mobile}}"></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="address-input" class=" form-control-label">Address</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="text" id="password-input" name="Address"
+                        placeholder="Address" class="form-control"value="{{this.Address}}"></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="locality" class=" form-control-label">Locality/town</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="text" id="locality-input" name="Locality"
+                        placeholder="Locality" class="form-control" value="{{this.Locality}}"></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="city-input" class=" form-control-label">City/District</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="text" id="city-input" name="City"
+                        placeholder="city" class="form-control" value="{{this.City}}"></textarea></div>
+                  </div>
+                   <div class="row form-group">
+                    <div class="col col-md-3"><label for="city-input" class=" form-control-label">State</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="text" id="state-input" name="State"
+                        placeholder="city" class="form-control" value="{{this.State}}"></textarea></div>
+                  </div>
+                  <div class="row form-group">
+                    <div class="col col-md-3"><label for="city-input" class=" form-control-label">Pin-code</label>
+                    </div>
+                    <div class="col-12 col-md-9"><input type="number" id="city-input" name="Pincode"
+                        placeholder="pin" class="form-control" value="{{this.Pincode}}"></textarea></div>
+                  </div>
+                  <div>
+                  <input type="text" name="userId" id="" value="{{this._id}}" hidden>
+                  </div>
+                  <div>
+                   <input type="text" name="addressId" id="" value="{{this.Id}}" hidden>
+                  </div>
+                 
+
+
+
+
+
+                  <div class="checkout_btn_inner d-flex align-items-center">
+                    <button  onclick="editAddress('{{this.Id}}')" type="submit"
+                      class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Submit</button>
+                  </div>
+
+                </form>
+
+
+              </div>
+            </div>
+          </div>
+          {{/each}}
+          
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+</section>
+
+  <script>
+    function editAddress(Id){
+      $("#editAddress-form"+Id).submit((e)=>{
+        
+        e.preventDefault()
+        $.ajax({
+            url:'/edit-address',
+            method:'post',
+            data:$('#editAddress-form'+Id).serialize(),
+            success:(response)=>{
+              Swal.fire('Hooray!', 'Address edited successfully',
+                                    'success') 
+                                setTimeout(() => { location.reload() }, 2000)
+                if(response.status){
+                    
+                }
+              
+            }
+        })
+    })
+    }
+    
+    function deleteAddress(Id){
+      $.ajax({
+        url:'/delete-address/'+Id,
+        method:'post',
+      
+        success:(response)=>{
+          Swal.fire('Hooray!', 'Address deleted successfully',
+                                    'success') 
+                                setTimeout(() => { location.reload() }, 2000)
+          if(response.status){
+
+          }
+         
+        }
+      })
+    }
+   </script>
+            
