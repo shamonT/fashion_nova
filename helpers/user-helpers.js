@@ -815,6 +815,13 @@ module.exports = {
     }
     });
   },
+  getUserOrders:(userId)=>{
+    console.log(userId);
+    return new Promise((resolve, reject) => {
+     let singleorder= db.get().collection(collection.ORDER_COLLECTION).find({userId:ObjectId(userId)}).toArray()
+     resolve(singleorder)
+    })
+  },
   getSingleOrder: (orderId) => {
     return new Promise(async (resolve, reject) => {
         try {

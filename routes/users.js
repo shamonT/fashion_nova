@@ -464,8 +464,12 @@ router.get("/confirmation", async (req, res) => {
 
 router.get("/orders", async (req, res) => {
   try{
-    let orders = await userHelpers.getAllOrders();
-    res.render("user/orders", { user: true, layout: "user-layout", orders });
+    
+    // let orders = await userHelpers.getAllOrders();
+    let orders = await userHelpers. getUserOrders(req.session.user._id);
+    console.log(orders,' let single =');
+   
+    res.render("user/orders", { user: true, layout: "user-layout", orders});
   }
   catch (error) {
     res.render("/err", { error });
